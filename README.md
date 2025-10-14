@@ -168,10 +168,3 @@ GET http://localhost:8080/aB3x9Z
 ---
 
 ⭐ *If you like this project, give it a star on GitHub!*
-
-```
-
----
-
-Would you like me to make it more **recruiter-friendly** (like including resume-ready project summary and deployment section), or keep it simple for now?
-```
