@@ -1,15 +1,10 @@
-Perfect 👍 Here’s a **complete and polished `README.md`** for your URL Shortener project — ready to copy directly into your repo root.
-
----
-
-```markdown
+```
 # 🔗 URL Shortener Application
 
 A simple and efficient **URL Shortening Service** built with **Spring Boot** and **PostgreSQL**.  
 It provides REST APIs to shorten long URLs, redirect to original links, and fetch URL statistics.  
 This project demonstrates key backend concepts such as layered architecture, entity mapping, and clean RESTful design.
 
----
 
 ## 🧱 Tech Stack
 - **Language:** Java 17  
@@ -28,7 +23,6 @@ This project demonstrates key backend concepts such as layered architecture, ent
 ✅ RESTful endpoints following clean service-repository design  
 ✅ Auto-timestamped URL entries (using `@PrePersist`)  
 
----
 
 ```
 ## 📁 Project Structure
