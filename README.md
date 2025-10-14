@@ -1,19 +1,15 @@
 # 🔗 URL Shortener Application
-```
 A simple and efficient **URL Shortening Service** built with **Spring Boot** and **PostgreSQL**.  
 It provides REST APIs to shorten long URLs, redirect to original links, and fetch URL statistics.  
 This project demonstrates key backend concepts such as layered architecture, entity mapping, and clean RESTful design.
-```
 
 ## 🧱 Tech Stack
-```
 - **Language:** Java 17  
 - **Framework:** Spring Boot  
 - **Database:** PostgreSQL  
 - **ORM:** Spring Data JPA  
 - **Utilities:** Lombok, Base62 Encoding  
 - **Build Tool:** Maven
-```
 
 ---
 
@@ -25,7 +21,6 @@ This project demonstrates key backend concepts such as layered architecture, ent
 ✅ Auto-timestamped URL entries (using `@PrePersist`)  
 
 
-```
 ## 📁 Project Structure
 ```
 src/
