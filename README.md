@@ -163,7 +163,7 @@ GET http://localhost:8080/aB3x9Z
 
 **Vedant Arsule**
 📍 Backend Developer in progress
-🔗 [GitHub](https://github.com/vedantarsule) • [LinkedIn](https://www.linkedin.com/in/vedantarsule)
+🔗 [GitHub](https://github.com/VedantDNA) • [LinkedIn](https://www.linkedin.com/in/vedant-arsule-534160275/)
 
 ---
 
