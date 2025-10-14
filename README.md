@@ -30,8 +30,8 @@ This project demonstrates key backend concepts such as layered architecture, ent
 
 ---
 
-## 📁 Project Structure
 ```
+## 📁 Project Structure
 ```
 src/
 └── main/
