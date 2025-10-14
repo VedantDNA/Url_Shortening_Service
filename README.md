@@ -46,12 +46,8 @@ src/
 ├── application.properties
 └── static/
 ```
-
-````
-
----
-
 ## ⚡ API Endpoints
+````
 
 | Method | Endpoint | Description |
 |--------|-----------|-------------|
