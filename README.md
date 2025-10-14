@@ -32,7 +32,7 @@ This project demonstrates key backend concepts such as layered architecture, ent
 
 ## 📁 Project Structure
 ```
-
+```
 src/
 └── main/
 ├── java/
@@ -45,6 +45,7 @@ src/
 └── resources/
 ├── application.properties
 └── static/
+```
 
 ````
 
