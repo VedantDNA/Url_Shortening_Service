@@ -1,157 +1,90 @@
-# 🔗 URL Shortener Application
-A simple and efficient **URL Shortening Service** built with **Spring Boot** and **PostgreSQL**.  
-It provides REST APIs to shorten long URLs, redirect to original links, and fetch URL statistics.  
-This project demonstrates key backend concepts such as layered architecture, entity mapping, and clean RESTful design.
+🔗 Advanced URL Shortener & Analytics Engine
+============================================
 
-## 🧱 Tech Stack
-- **Language:** Java 17  
-- **Framework:** Spring Boot  
-- **Database:** PostgreSQL  
-- **ORM:** Spring Data JPA  
-- **Utilities:** Lombok, Base62 Encoding  
-- **Build Tool:** Maven
+A high-performance **URL Shortening Service** built with **Spring Boot 3** and **PostgreSQL 16**.
 
----
+This project goes beyond basic CRUD by implementing a **non-blocking telemetry engine** to capture real-time visitor analytics without impacting redirection latency.
 
-## ⚙️ Features
-✅ Shorten any long URL into a unique Base62 short code  
-✅ Redirect users from the short code to the original URL  
-✅ Retrieve all stored URL mappings  
-✅ RESTful endpoints following clean service-repository design  
-✅ Auto-timestamped URL entries (using `@PrePersist`)  
+🧱 Tech Stack
+-------------
 
+*   **Language:** Java 21 (utilizing modern **Records**)
+    
+*   **Framework:** Spring Boot 3.x
+    
+*   **Database:** PostgreSQL 16
+    
+*   **DevOps:** Docker & Docker Compose
+    
+*   **Concurrency:** Spring @Async Task Execution
+    
+*   **Utilities:** Base62 Encoding, User-Agent Parsing
+    
 
-## 📁 Project Structure
-```
-src/
-└── main/
-├── java/
-│    └── org.vedant.urlshortener/
-│          ├── controller/
-│          ├── service/
-│          ├── repository/
-│          ├── model/
-│          └── UrlShortenerApplication.java
-└── resources/
-├── application.properties
-└── static/
-```
-## ⚡ API Endpoints
-````
+⚙️ Features
+-----------
 
-| Method | Endpoint | Description |
-|--------|-----------|-------------|
-| `POST` | `/api/shorten` | Shortens a long URL and returns the short code |
-| `GET`  | `/{shortCode}` | Redirects to the original URL |
-| `GET`  | `/api/{shortCode}` | Fetches URL details (original URL, created date, etc.) |
-| `GET`  | `/api/all` | Returns all URL mappings |
+✅ **Async Telemetry:** Captures visitor metadata (IP, OS, Browser) in the background.
 
----
+✅ **Base62 Encoding:** Generates unique, URL-safe short codes.
 
-## 🗄️ Database Setup (PostgreSQL)
+✅ **Unique Visitor Tracking:** Uses set-logic to distinguish between total clicks and unique users.
 
-1. **Create a database**  
-   ```sql
-   CREATE DATABASE url_shortener;
-````
+✅ **Dockerized:** One-command deployment for both the app and the database.
 
-2. **Create a user (optional)**
+✅ **X-Forwarded-For Support:** Correctly identifies client IPs behind proxies/Docker bridges.
 
-   ```sql
-   CREATE ROLE url_short WITH LOGIN PASSWORD 'your_password';
-   GRANT ALL PRIVILEGES ON DATABASE url_shortener TO url_short;
-   ```
+📁 Project Structure
+--------------------
 
-3. **Update your `application.properties`:**
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   src/  └── main/  ├── java/  │    └── org.vedant.urlshortener/  │          ├── config/       # Async & Web Configuration  │          ├── controller/   # REST Endpoints  │          ├── dto/          # Data Transfer Objects (Records)  │          ├── service/      # Business Logic & Analytics  │          ├── repository/   # JPA Repositories  │          ├── model/        # Database Entities  │          └── UrlShortenerApplication.java  └── resources/      ├── application.properties      └── static/   `
 
-   ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:5432/url_shortener
-   spring.datasource.username=url_short
-   spring.datasource.password=your_password
-   spring.jpa.hibernate.ddl-auto=update
-   spring.jpa.show-sql=true
-   ```
+⚡ API Endpoints
+---------------
 
----
+**MethodEndpointDescription**POST/api/shortenShortens a long URL and returns the mappingGET/{shortCode}**Redirector:** Triggers Async telemetry and redirectsGET/api/getstats/{shortCode}Fetches full analytics (Total/Unique clicks + Event List)
 
-## ▶️ Run the Application
+🐳 Run with Docker (Recommended)
+--------------------------------
 
-### Using Maven:
+The entire stack is containerized. To start the app and PostgreSQL database together:
 
-```bash
-mvn spring-boot:run
-```
+Bash
 
-### Or build and run the JAR:
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   docker-compose up --build   `
 
-```bash
-mvn clean package
-java -jar target/UrlShortenerApplication-0.0.1-SNAPSHOT.jar
-```
+The application will be live at http://localhost:8080.
 
-Once started, visit:
-
-```
-http://localhost:8080
-```
-
----
-
-## 🧩 Example Usage
+🧩 Example Analytics Usage
+--------------------------
 
 **Request:**
 
-```bash
-POST /api/shorten
-Content-Type: application/json
-
-{
-  "longUrl": "https://www.example.com/articles/spring-boot-url-shortener"
-}
-```
+GET /api/getstats/1yG5Z
 
 **Response:**
 
-```json
-{
-  "shortCode": "aB3x9Z",
-  "originalUrl": "https://www.example.com/articles/spring-boot-url-shortener",
-  "createdAt": "2025-10-14T12:34:56"
-}
-```
+JSON
 
-Now you can access the original link using:
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "shortCode": "1yG5Z",    "originalUrl": "https://www.youtube.com/...",    "totalClicks": 6,    "uniqueVisitors": 2,    "clickStats": [      {        "ipAddress": "192.168.65.1",        "platform": "MacOS",        "browser": "Chrome",        "createdAt": "2026-03-17T12:57:08"      }    ]  }   `
 
-```
-GET http://localhost:8080/aB3x9Z
-```
+🧠 Learning Outcomes
+--------------------
 
----
+*   **System Design:** Decoupled the critical path (Redirect) from side effects (Telemetry) using @Async.
+    
+*   **Data Aggregation:** Implemented DTOs to merge relational data with analytical event streams.
+    
+*   **Modern Java:** Utilized Java Records for immutable, thread-safe data transfer.
+    
+*   **DevOps:** Managed multi-container environments using Docker Compose.
+    
 
-## 🧠 Learning Outcomes
+👨‍💻 Author
+------------
 
-* Implemented layered Spring Boot architecture (`Controller → Service → Repository`)
-* Used JPA entity lifecycle (`@PrePersist`) for timestamps
-* Practiced Base62 encoding for short code generation
-* Integrated PostgreSQL with Spring Data JPA
+**Vedant Arsule** 📍 Aspiring Backend Developer
 
----
-
-## 💡 Future Improvements
-
-* Add click tracking and analytics
-* Implement user-based URL management
-* Add expiration dates for short links
-* Deploy to cloud (Render / Railway / AWS)
-
----
-
-## 👨‍💻 Author
-
-**Vedant Arsule**
-📍 Backend Developer in progress
 🔗 [GitHub](https://github.com/VedantDNA) • [LinkedIn](https://www.linkedin.com/in/vedant-arsule-534160275/)
 
----
-
-⭐ *If you like this project, give it a star on GitHub!*
+⭐ _If you like this project, give it a star on GitHub!_
