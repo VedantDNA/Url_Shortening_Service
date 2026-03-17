@@ -56,14 +56,15 @@ docker-compose up --build
 ```
 The application will be live at: http://localhost:8080/api/urls/
 ```
+---
 
-#🧩 Example Analytics Usage
+# 🧩 Example Analytics Usage
 
-##Request:
+## Request:
 ```
 GET /api/getstats/1yG5Z
 ```
-##Response:
+## Response:
 
 ``` json
 {
@@ -81,3 +82,4 @@ GET /api/getstats/1yG5Z
   ]
 }
 ```
+---
