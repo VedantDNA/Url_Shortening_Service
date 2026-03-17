@@ -62,7 +62,7 @@ The application will be live at: http://localhost:8080/api/urls/
 
 ## Request:
 ```
-GET /api/getstats/1yG5Z
+GET /api/getstats/1yG5Z/
 ```
 ## Response:
 
@@ -83,3 +83,19 @@ GET /api/getstats/1yG5Z
 }
 ```
 ---
+
+# 🧠 Learning Outcomes
+System Design: Decoupled the critical path (Redirect) from side effects (Telemetry) using @Async.
+
+Data Aggregation: Implemented DTOs to merge relational data with analytical event streams.
+
+Modern Java: Utilized Java Records for immutable, thread-safe data transfer.
+
+DevOps: Managed multi-container environments using Docker Compose.
+---
+## 👨 Author
+Vedant Arsule 📍 Aspiring Backend Developer
+
+🔗 [GitHub](https://github.com/VedantDNA/) • [LinkedIn](https://www.linkedin.com/in/vedant-arsule/)
+---
+⭐ If you like this project, give it a star on GitHub!
