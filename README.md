@@ -36,3 +36,23 @@ src/
 ├── application.properties
 └── static/
 ```
+## ⚡ API Endpoints
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| `POST` | `/api/shorten` | Shortens a long URL and returns the mapping |
+| `GET`  | `/{shortCode}` | **Redirector:** Triggers Async telemetry and redirects |
+| `GET`  | `/api/getstats/{shortCode}` | Fetches full analytics (Total/Unique clicks + Event List) |
+
+---
+
+## 🐳 Run with Docker (Recommended)
+
+The entire stack is containerized. To start the app and PostgreSQL database together:
+``` bash
+docker-compose up --build
+```
+
+```
+http://localhost:8080/api/urls/
+```
