@@ -65,7 +65,7 @@ GET /api/getstats/1yG5Z
 ```
 ##Response:
 
-''' json
+``` json
 {
   "shortCode": "1yG5Z",
   "originalUrl": "[https://www.youtube.com/](https://www.youtube.com/)...",
@@ -80,4 +80,4 @@ GET /api/getstats/1yG5Z
     }
   ]
 }
-'''
+```
