@@ -54,5 +54,30 @@ docker-compose up --build
 ```
 
 ```
-http://localhost:8080/api/urls/
+The application will be live at: http://localhost:8080/api/urls/
 ```
+
+#🧩 Example Analytics Usage
+
+##Request:
+```
+GET /api/getstats/1yG5Z
+```
+##Response:
+
+''' json
+{
+  "shortCode": "1yG5Z",
+  "originalUrl": "[https://www.youtube.com/](https://www.youtube.com/)...",
+  "totalClicks": 6,
+  "uniqueVisitors": 2,
+  "clickStats": [
+    {
+      "ipAddress": "192.168.65.1",
+      "platform": "MacOS",
+      "browser": "Chrome",
+      "createdAt": "2026-03-17T12:57:08"
+    }
+  ]
+}
+'''
