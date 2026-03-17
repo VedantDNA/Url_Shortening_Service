@@ -20,7 +20,7 @@ This project goes beyond basic CRUD by implementing a **non-blocking telemetry e
 ✅ **X-Forwarded-For Support:** Correctly identifies client IPs behind proxies/Docker bridges.
 
 ## 📁 Project Structure
-**
+```
 src/
 └── main/
 ├── java/
@@ -35,4 +35,4 @@ src/
 └── resources/
 ├── application.properties
 └── static/
-**
+```
