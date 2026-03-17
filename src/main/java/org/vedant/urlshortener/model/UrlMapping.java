@@ -13,7 +13,7 @@ public class UrlMapping {
     @Column(nullable = false, length = 2048)
     private String originalUrl;
 
-    @Column(unique = true, length = 50)
+    @Column(unique = true, length = 10)
     private String shortCode;
 
     private LocalDateTime createdAt = LocalDateTime.now();

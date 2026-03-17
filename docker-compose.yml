@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: urlshortener-db
+    environment:
+      POSTGRES_USER: vedant
+      POSTGRES_PASSWORD: vedant123
+      POSTGRES_DB: urlshortener
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: urlshortener-app:1.0      # <-- Explicit image name + version tag
+    container_name: url_shortenerapp # <-- Explicit container name
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/urlshortener
+      SPRING_DATASOURCE_USERNAME: vedant
+      SPRING_DATASOURCE_PASSWORD: vedant123
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
