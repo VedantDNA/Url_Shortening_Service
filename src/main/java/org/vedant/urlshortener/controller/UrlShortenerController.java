@@ -49,7 +49,7 @@ public class UrlShortenerController {
             ipAddr = request.getRemoteAddr();
         }
 
-        service.captureHit(shortCode, ipAddr, userAgent);
+        service.captureHit(shortCode, ipAddr, userAgent); 
         response.sendRedirect(url);
     }
 
